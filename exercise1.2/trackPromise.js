@@ -2,7 +2,7 @@ const mockTrack = require("./mockTrack");
 
 const setTimeOut = time => new Promise((resolve) => setTimeout(resolve, time));
 
-const trackPromise = (trackPromise) => {
+const trackPromise = (mockTrack) => {
   mockTrack
     .then((response) => {
       setTimeOut(2000)
