@@ -1,4 +1,4 @@
-import songs from "./songs";
+const songs = require("./songs");
 
 const songsPromise = (songPromise) => {
     songPromise
@@ -12,7 +12,7 @@ const songsPromise = (songPromise) => {
 
 const printSongList = (songs) => {
 	console.log("Songs List:");
-	songs.forEach(song => {
+	songs.map(song => {
 		console.log(`Title: ${song.title}`);
 		console.log(`Artist: ${song.artists[0].name}`);
 		console.log(`Duration: ${song.duration}`);

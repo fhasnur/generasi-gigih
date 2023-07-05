@@ -1,4 +1,4 @@
-import songs from "./songs";
+const songs = require("./songs");
 
 const printSongsAsyncAwait = async (songPromise) => {
     try {
