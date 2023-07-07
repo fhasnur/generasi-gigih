@@ -1,0 +1,22 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    display: flex;
+    height: 100vh;
+}
+
+.sidebar {
+    flex-basis: 20%;
+    background-color: #191414;
+}
+
+.sidebar ul {
+    color: white;
+}
+
+.main {
+    flex-basis: 80%;
+}
