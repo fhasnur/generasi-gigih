@@ -2,6 +2,8 @@ import {
   addSongRepo,
   getAllSongsRepo,
   getSongPlayByIdRepo,
+  incrementSongPlayCountRepo,
+  getMostPlayedSongsRepo,
 } from "../../repositories/playlist/playlist.js";
 
 export const getSongPlayByIdUsecase = (id) => {
@@ -12,6 +14,16 @@ export const getSongPlayByIdUsecase = (id) => {
   }
 
   return song;
+};
+
+export const incrementSongPlayCountUsecase = (id) => {
+  incrementSongPlayCountRepo(id);
+};
+
+export const getMostPlayedSongsUsecase = () => {
+  const mostPlayedSongs = getMostPlayedSongsRepo();
+
+  return mostPlayedSongs;
 };
 
 export const addSongUsecase = (title, artists, url) => {

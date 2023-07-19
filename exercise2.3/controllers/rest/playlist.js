@@ -2,6 +2,8 @@ import {
   addSongUsecase,
   getAllSongsUsecase,
   getSongPlayByIdUsecase,
+  incrementSongPlayCountUsecase,
+  getMostPlayedSongsUsecase,
 } from "../../usecases/playlist/playlist.js";
 
 export const getIndex = (req, res) => {
@@ -13,23 +15,27 @@ export const getIndex = (req, res) => {
 export const getSongPlay = (req, res) => {
   const { id } = req.params;
 
-  try {
-    const song = getSongPlayByIdUsecase(id);
+  incrementSongPlayCountUsecase(id);
 
-    if (!song) {
-      return res.status(404).json({
-        message: "Song not found!",
-      });
-    }
+  const song = getSongPlayByIdUsecase(id);
 
-    res.json({
-      data: song,
-    });
-  } catch (error) {
-    res.status(500).json({
-      message: error.message,
+  if (!song) {
+    return res.status(404).json({
+      message: "Song not found!",
     });
   }
+
+  res.json({
+    data: song,
+  });
+};
+
+export const getMostPlayedSongs = (req, res) => {
+  const mostPlayedSongs = getMostPlayedSongsUsecase();
+
+  res.json({
+    data: mostPlayedSongs,
+  });
 };
 
 export const addSong = (req, res) => {
