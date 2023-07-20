@@ -6,12 +6,6 @@ import {
   getMostPlayedSongsUsecase,
 } from "../../usecases/playlist/playlist.js";
 
-export const getIndex = (req, res) => {
-  res.json({
-    message: "Welcome to Spotify!",
-  });
-};
-
 export const getSongPlay = (req, res) => {
   const { id } = req.params;
 
